@@ -1,7 +1,10 @@
 package com.example.thechancemovietask.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Movies(
     @SerializedName("adult")
     val adult: Boolean,
@@ -23,4 +26,4 @@ data class Movies(
     val voteAverage: String,
     @SerializedName("vote_count")
     val voteCount: String,
-)
+):Parcelable

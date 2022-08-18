@@ -9,7 +9,9 @@ import com.example.thechancemovietask.databinding.LayoutHeaderRecyclerItemBindin
 import com.example.thechancemovietask.databinding.LayoutMovieRecyclerItemBinding
 import com.example.thechancemovietask.model.Movies
 
-class HeaderAdapter :
+class HeaderAdapter(
+    private val onMovieHeaderClick: (Movies) -> Unit
+) :
     ListAdapter<Movies, HeaderViewHolder>(MovieComparator()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HeaderViewHolder {
@@ -18,7 +20,14 @@ class HeaderAdapter :
             parent,
             false
         )
-        return HeaderViewHolder(binding)
+        return HeaderViewHolder(binding,
+            onHeaderClickItems = { position ->
+                val movie = getItem(position)
+                if (movie != null) {
+                    onMovieHeaderClick(movie)
+                }
+            }
+        )
     }
 
     override fun onBindViewHolder(holder: HeaderViewHolder, position: Int) {

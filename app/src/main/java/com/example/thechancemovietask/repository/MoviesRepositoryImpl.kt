@@ -32,7 +32,7 @@ class MoviesRepositoryImpl(
         return emitting("${MOVIE}$movieId${SIMILAR}")
     }
 
-    override fun getListOfMovie(): Flow<DataMoviesState<MoviesTotalResults>> {
+    override fun getTopListOfMovie(): Flow<DataMoviesState<MoviesTotalResults>> {
         return emitting(TOP_LISTS)
     }
 

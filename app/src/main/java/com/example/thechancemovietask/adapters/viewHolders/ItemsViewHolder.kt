@@ -7,7 +7,8 @@ import com.example.thechancemovietask.model.Movies
 import com.example.thechancemovietask.util.Constants.MOVIE_IMAGE_URL
 
 class ItemsViewHolder(
-    private val binding: LayoutMovieRecyclerItemBinding
+    private val binding: LayoutMovieRecyclerItemBinding,
+    private val onMovieClickItems: (Int) -> Unit
 ): RecyclerView.ViewHolder(binding.root) {
     fun bind(movie:Movies){
         binding.apply {
@@ -16,6 +17,15 @@ class ItemsViewHolder(
             Glide.with(itemView)
                 .load(MOVIE_IMAGE_URL+movie.posterPath)
                 .into(binding.imageViewItem)
+        }
+    }
+
+    init {
+        itemView.setOnClickListener {
+            val position = adapterPosition
+            if (position != RecyclerView.NO_POSITION) {
+                onMovieClickItems(position)
+            }
         }
     }
 }

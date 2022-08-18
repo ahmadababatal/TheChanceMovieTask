@@ -20,8 +20,4 @@ class MovieService : MoviesService {
         else DataMoviesState.Error(response.message)
     }
 
-    // TRENDING
-    // ${SEARCHING}$keywordQuery
-    // ${POPULAR}$pageQuery
-    // ${MOVIE}$movieId${SIMILAR}
 }

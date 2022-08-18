@@ -8,11 +8,39 @@
     android:background="@drawable/bit_backgound"
     tools:context=".ui.HomeFragment">
 
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:constraint_referenced_ids="recycler_header_items,
+        text_view_trending_label,
+        recycler_trending_items,
+        text_view_popular_label,
+        recycler_popular_items"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UnknownId" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationLoding"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        android:visibility="gone"
+        app:lottie_rawRes="@raw/movie_loading"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_header_items"
         android:layout_width="match_parent"
-        android:layout_height="270dp"
+        android:layout_height="180dp"
         android:orientation="horizontal"
+        android:layout_marginTop="10dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/layout_header_recycler_item"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,16 +54,17 @@
         android:textAlignment="textStart"
         android:layout_marginStart="10dp"
         android:textColor="@color/text_primary_color"
+        android:layout_marginTop="10dp"
         app:layout_constraintTop_toBottomOf="@+id/recycler_header_items"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_trending_items"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="210dp"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/layout_movie_recycler_item"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintTop_toBottomOf="@+id/text_view_trending_label"/>
 
     <TextView
@@ -46,17 +75,18 @@
         android:text="@string/popular"
         android:textAlignment="textStart"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
         android:textColor="@color/text_primary_color"
         app:layout_constraintTop_toBottomOf="@+id/recycler_trending_items"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_popular_items"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="210dp"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/layout_movie_recycler_item"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintTop_toBottomOf="@+id/text_view_popular_label"/>
 
 

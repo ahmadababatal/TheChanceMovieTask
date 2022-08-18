@@ -7,7 +7,9 @@ import com.example.thechancemovietask.adapters.viewHolders.ItemsViewHolder
 import com.example.thechancemovietask.databinding.LayoutMovieRecyclerItemBinding
 import com.example.thechancemovietask.model.Movies
 
-class ItemsAdapter : ListAdapter<Movies,ItemsViewHolder>(MovieComparator()){
+class ItemsAdapter(
+    private val onMovieItemClick: (Movies) -> Unit
+) : ListAdapter<Movies,ItemsViewHolder>(MovieComparator()){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemsViewHolder {
         val binding = LayoutMovieRecyclerItemBinding.inflate(
@@ -15,7 +17,15 @@ class ItemsAdapter : ListAdapter<Movies,ItemsViewHolder>(MovieComparator()){
             parent,
             false
         )
-        return ItemsViewHolder(binding)
+
+        return ItemsViewHolder(binding,
+            onMovieClickItems ={ position ->
+                val movie = getItem(position)
+                if (movie != null) {
+                    onMovieItemClick(movie)
+                }
+            }
+        )
     }
 
     override fun onBindViewHolder(holder: ItemsViewHolder, position: Int) {

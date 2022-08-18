@@ -7,7 +7,8 @@ import com.example.thechancemovietask.model.Movies
 import com.example.thechancemovietask.util.Constants.MOVIE_IMAGE_URL
 
 class HeaderViewHolder(
-    private val binding: LayoutHeaderRecyclerItemBinding
+    private val binding: LayoutHeaderRecyclerItemBinding,
+    private val onHeaderClickItems: (Int) -> Unit
 ): RecyclerView.ViewHolder(binding.root) {
     fun bind(movie: Movies){
         binding.apply {
@@ -15,6 +16,15 @@ class HeaderViewHolder(
             Glide.with(itemView)
                 .load(MOVIE_IMAGE_URL+movie.backdropPath)
                 .into(binding.imageViewHeader)
+        }
+    }
+
+    init {
+        itemView.setOnClickListener {
+            val position = adapterPosition
+            if (position != RecyclerView.NO_POSITION) {
+                onHeaderClickItems(position)
+            }
         }
     }
 

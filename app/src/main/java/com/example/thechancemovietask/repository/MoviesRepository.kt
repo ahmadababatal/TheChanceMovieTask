@@ -14,5 +14,5 @@ interface MoviesRepository {
 
      fun getSimilarMovieByMovieId(movieId:String): Flow<DataMoviesState<MoviesTotalResults>>
 
-     fun getListOfMovie(): Flow<DataMoviesState<MoviesTotalResults>>
+     fun getTopListOfMovie(): Flow<DataMoviesState<MoviesTotalResults>>
 }
