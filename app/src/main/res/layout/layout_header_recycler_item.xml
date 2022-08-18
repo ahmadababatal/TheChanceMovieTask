@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="400dp"
+    android:layout_height="240dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="50dp"
+    android:elevation="5dp"
+    app:cardMaxElevation="8dp"
+    android:layout_margin="5dp"
+    android:layout_marginStart="5dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/image_view_header"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/header_img"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/todo" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@drawable/item_background_gradient_shodow"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/text_item_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/prey"
+            android:textSize="20sp"
+            android:layout_marginStart="25dp"
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/text_primary_color"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+</com.google.android.material.card.MaterialCardView>
